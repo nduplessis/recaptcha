@@ -179,8 +179,9 @@ module Recaptcha
           // Define function so that we can call it again later if we need to reset it
           // This executes reCAPTCHA and then calls our callback.
           function #{recaptcha_v3_execute_function_name(action)}() {
+            console.log('Waiting for recaptcha ready')
             grecaptcha.ready(function() {
-              console.log('About to get recaptcha token')
+              console.log('Recaptcha ready')
               grecaptcha.execute('#{site_key}', {action: '#{action}'}).then(function(token) {
                 console.log('#{id}', token)
                 #{callback}('#{id}', token)

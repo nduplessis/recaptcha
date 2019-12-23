@@ -181,7 +181,7 @@ module Recaptcha
           function #{recaptcha_v3_execute_function_name(action)}() {
             grecaptcha.ready(function() {
               grecaptcha.execute('#{site_key}', {action: '#{action}'}).then(function(token) {
-                //console.log('#{id}', token)
+                console.log('#{id}', token)
                 #{callback}('#{id}', token)
               });
             });
